@@ -1,1 +1,2 @@
-// No build information available
+#define BUILD_SUFFIX b80b255-dirty
+#define BUILD_DATE "2019-01-07 03:15:29 -0600"
