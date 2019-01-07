@@ -53,13 +53,13 @@ static void convertSeed6(std::vector<CAddress>& vSeedsOut, const SeedSpec6* data
 // + Contains no strange transactions
 static Checkpoints::MapCheckpoints mapCheckpoints =
     boost::assign::map_list_of
-    (0, uint256("0x000007b209c32debaa33e82380af5a8525a81f2c67c0236fce97ec3986f9d196"));
+    (0, uint256("0x00000210613fc198d802b4e0a61e465b25e6133363d0c377301e37558a853660"));
 
     
 
 static const Checkpoints::CCheckpointData data = {
     &mapCheckpoints,
-    1546840673, // * UNIX timestamp of last checkpoint block
+    1546900809, // * UNIX timestamp of last checkpoint block
     0,          // * total number of transactions between genesis and last checkpoint
                 //   (the tx=... number in the SetBestChain debug.log lines)
     1440        // * estimated number of transactions per day after checkpoint
@@ -69,7 +69,7 @@ static Checkpoints::MapCheckpoints mapCheckpointsTestnet =
     boost::assign::map_list_of(0, uint256("0x001"));
 static const Checkpoints::CCheckpointData dataTestnet = {
     &mapCheckpointsTestnet,
-    1546840673,
+    1546900809,
     0,
     250};
 
@@ -77,7 +77,7 @@ static Checkpoints::MapCheckpoints mapCheckpointsRegtest =
     boost::assign::map_list_of(0, uint256("0x001"));
 static const Checkpoints::CCheckpointData dataRegtest = {
     &mapCheckpointsRegtest,
-    1546840673,
+    1546900809,
     0,
     100};
 
@@ -125,12 +125,12 @@ public:
          * The characters are rarely used upper ASCII, not valid as UTF-8, and produce
          * a large 4-byte int at any alignment.
          */
-        pchMessageStart[0] = 0xa6;
-        pchMessageStart[1] = 0x59;
-        pchMessageStart[2] = 0x32;
-        pchMessageStart[3] = 0x5f;
+        pchMessageStart[0] = 0xb5;
+        pchMessageStart[1] = 0xc6;
+        pchMessageStart[2] = 0xb2;
+        pchMessageStart[3] = 0xa8;
         vAlertPubKey = ParseHex("04102c996c26574b7b2f4464ed2fdf410948a2d4d6497b81a490aeb9e3482e352a253bd689a5a4eaea1266ee308411e029ffb27d8ed424c71ab7753392d59d5e97");
-        nDefaultPort = 19221;
+        nDefaultPort = 27505;
         bnProofOfWorkLimit = ~uint256(0) >> 20; // ZNDECoin starting difficulty is 1 / 2^12
         nSubsidyHalvingInterval = 2100000;
         nMaxReorganizationDepth = 100;
@@ -157,7 +157,7 @@ public:
          *     CTxOut(nValue=50.00000000, scriptPubKey=0xA9037BAC7050C479B121CF)
          *   vMerkleTree: e0028e
          */
-        const char* pszTimestamp = "Begin Chain at 1546840673";
+        const char* pszTimestamp = "Genesis 1546900809";
         CMutableTransaction txNew;
         txNew.vin.resize(1);
         txNew.vout.resize(1);
@@ -168,17 +168,19 @@ public:
         genesis.hashPrevBlock = 0;
         genesis.hashMerkleRoot = genesis.BuildMerkleTree();
         genesis.nVersion = 1;
-        genesis.nTime = 1546840673;
+        genesis.nTime = 1546900809;
         genesis.nBits = 0x1e0ffff0;
-        genesis.nNonce = 3972710;
+        genesis.nNonce = 5175748;
+
+	//MineGenesis(genesis);
 
         hashGenesisBlock = genesis.GetHash();
-        assert(hashGenesisBlock == uint256("0x000007b209c32debaa33e82380af5a8525a81f2c67c0236fce97ec3986f9d196"));
-        assert(genesis.hashMerkleRoot == uint256("0x0a6e8f9dba4b2faa30aa6c28ddd965476182e169614fc3bb75366fd03fef0c1c"));
+        assert(hashGenesisBlock == uint256("0x00000210613fc198d802b4e0a61e465b25e6133363d0c377301e37558a853660"));
+        assert(genesis.hashMerkleRoot == uint256("0x40df577c2382c56cc7916597621c7fc83d4f6e30c3797002af760fc3814d447e"));
 
-        vSeeds.push_back(CDNSSeedData("178.128.6.185", "178.128.8.149"));         // Single node address
-        vSeeds.push_back(CDNSSeedData("178.128.8.10", "178.128.6.18"));           // Single node address
-	vSeeds.push_back(CDNSSeedData("178.128.1.142", "178.128.10.61"));         // Single node address
+        vSeeds.push_back(CDNSSeedData("104.248.236.175", "104.248.236.105"));         // Single node address
+        vSeeds.push_back(CDNSSeedData("104.248.226.131", "104.248.236.210"));           // Single node address
+	vSeeds.push_back(CDNSSeedData("104.248.226.87", "104.248.236.244"));         // Single node address
 
 
         base58Prefixes[PUBKEY_ADDRESS] = std::vector<unsigned char>(1, 80);
@@ -205,7 +207,7 @@ public:
         strSporkKey = "4yp1j2VzPvFmxGNKqzjWCjCsmhfHLD5rkAU1MJPPTdhi8JK5E2y";
         strObfuscationPoolDummyAddress = "ZKBQ3cKKAEvrydV3jMKg5e6uZRh2Qky3Sq";
 		
-        nStartMasternodePayments = 1546840673; 
+        nStartMasternodePayments = 1546900809; 
     }
 
     const Checkpoints::CCheckpointData& Checkpoints() const

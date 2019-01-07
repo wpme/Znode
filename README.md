@@ -98,7 +98,7 @@ All binaries for different operating systems, you can download in the releases r
 
 https://github.com/ZNode-project/ZNode/releases
 
-P2P port: 27505, RPC port: 93401
+P2P port: 27505, RPC port: 27506
 -
 Distributed under the MIT software license, see the accompanying file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
