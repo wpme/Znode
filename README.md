@@ -16,9 +16,9 @@ ZNode Core (fork of PIVX) integration/staging repository
 ### additional specs:
 |   |  |
 | --- | ---:|
-| POW phase (blocks 2-1,000)| 1ZNDE |
+| Premine/instamine phase (blocks 2-1,000)| ZNDE |
 | Stake Min Age | 60 minutes |
-| Maturity | 10 blocks |
+| Maturity | 20 blocks |
 
 
 ### Reward Distribution
@@ -76,23 +76,23 @@ Cloning the repository and compiling (use any user with the sudo group):
     ./configure
     sudo make install
     cd src
-    sudo strip ZNoded
-    sudo strip ZNode-cli
-    sudo strip ZNode-tx
+    sudo strip ZNDEd
+    sudo strip ZNDE-cli
+    sudo strip ZNDE-tx
     cd ..
 
 Running the daemon:
 
-    ZNoded
+    ZNDECoind
 
 Stopping the daemon:
 
-    ZNode-cli stop
+    ZNDECoin-cli stop
 
 Demon status:
 
-    ZNode-cli getinfo
-    ZNode-cli mnsync status
+    ZNDECoin-cli getinfo
+    ZNDECoin-cli mnsync status
 
 All binaries for different operating systems, you can download in the releases repository:
 
